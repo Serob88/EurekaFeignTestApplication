@@ -1,8 +1,12 @@
-package com.example.producer.pojo;
+package com.example.client.pojo;
 
 public class Product {
+
   private String id;
   private String name;
+
+  public Product() {
+  }
 
   public String getId() {
     return this.id;

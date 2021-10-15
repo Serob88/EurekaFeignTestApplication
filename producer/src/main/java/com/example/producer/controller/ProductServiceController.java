@@ -1,6 +1,6 @@
 package com.example.producer.controller;
 
-import com.example.producer.pojo.Product;
+import com.example.client.pojo.Product;
 import com.example.producer.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,28 +24,20 @@ public class ProductServiceController {
     return new ResponseEntity(this.productService.getProducts(), HttpStatus.OK);
   }
 
-  @RequestMapping(
-      value = {"/products/{id}"},
-      method = {RequestMethod.PUT}
+  @RequestMapping(value = {"/products/{id}"}, method = {RequestMethod.PUT}
   )
   public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product) {
     this.productService.updateProduct(id, product);
     return new ResponseEntity("Product is updated successsfully", HttpStatus.OK);
   }
 
-  @RequestMapping(
-      value = {"/products/{id}"},
-      method = {RequestMethod.DELETE}
-  )
+  @RequestMapping(value = {"/products/{id}"}, method = {RequestMethod.DELETE})
   public ResponseEntity<Object> delete(@PathVariable("id") String id) {
     this.productService.deleteProduct(id);
     return new ResponseEntity("Product is deleted successfully", HttpStatus.OK);
   }
 
-  @RequestMapping(
-      value = {"/products"},
-      method = {RequestMethod.POST}
-  )
+  @RequestMapping(value = {"/products"}, method = {RequestMethod.POST})
   public ResponseEntity<Object> createProduct(@RequestBody Product product) {
     this.productService.createProduct(product);
     return new ResponseEntity("Product is created successfully", HttpStatus.CREATED);

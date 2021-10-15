@@ -1,5 +1,6 @@
-package com.example.consumer;
+package com.example.client;
 
+import com.example.client.pojo.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

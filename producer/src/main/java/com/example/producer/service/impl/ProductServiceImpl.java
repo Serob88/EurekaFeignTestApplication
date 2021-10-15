@@ -1,11 +1,11 @@
 package com.example.producer.service.impl;
 
+import com.example.client.pojo.Product;
+import com.example.producer.service.ProductService;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Service;
-import com.example.producer.pojo.Product;
-import com.example.producer.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {

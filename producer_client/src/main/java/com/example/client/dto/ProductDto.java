@@ -1,15 +1,12 @@
-package com.example.consumer;
+package com.example.client.dto;
 
-public class Product {
+public class ProductDto {
 
   private String id;
   private String name;
 
-  public Product() {
-  }
-
   public String getId() {
-    return this.id;
+    return id;
   }
 
   public void setId(String id) {
@@ -17,7 +14,7 @@ public class Product {
   }
 
   public String getName() {
-    return this.name;
+    return name;
   }
 
   public void setName(String name) {

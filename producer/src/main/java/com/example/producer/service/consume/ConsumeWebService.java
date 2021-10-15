@@ -1,5 +1,6 @@
 package com.example.producer.service.consume;
 
+import com.example.client.pojo.Product;
 import java.util.Arrays;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import com.example.producer.pojo.Product;
 
 @RestController
 public class ConsumeWebService {
@@ -27,7 +27,8 @@ public class ConsumeWebService {
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     HttpEntity<String> entity = new HttpEntity(headers);
-    return (String)this.restTemplate.exchange("http://localhost:9090/products", HttpMethod.GET, entity, String.class, new Object[0]).getBody();
+    return (String) this.restTemplate
+        .exchange("http://localhost:9090/products", HttpMethod.GET, entity, String.class, new Object[0]).getBody();
   }
 
   @RequestMapping(
@@ -38,7 +39,8 @@ public class ConsumeWebService {
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     HttpEntity<Product> entity = new HttpEntity(product, headers);
-    return (String)this.restTemplate.exchange("http://localhost:9090/products", HttpMethod.POST, entity, String.class, new Object[0]).getBody();
+    return (String) this.restTemplate
+        .exchange("http://localhost:9090/products", HttpMethod.POST, entity, String.class, new Object[0]).getBody();
   }
 
   @RequestMapping(
@@ -49,7 +51,9 @@ public class ConsumeWebService {
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     HttpEntity<Product> entity = new HttpEntity(product, headers);
-    return (String)this.restTemplate.exchange("http://localhost:9090/products/" + id, HttpMethod.PUT, entity, String.class, new Object[0]).getBody();
+    return (String) this.restTemplate
+        .exchange("http://localhost:9090/products/" + id, HttpMethod.PUT, entity, String.class, new Object[0])
+        .getBody();
   }
 
   @RequestMapping(
@@ -60,7 +64,9 @@ public class ConsumeWebService {
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     HttpEntity<Product> entity = new HttpEntity(headers);
-    return (String)this.restTemplate.exchange("http://localhost:9090/products/" + id, HttpMethod.DELETE, entity, String.class, new Object[0]).getBody();
+    return (String) this.restTemplate
+        .exchange("http://localhost:9090/products/" + id, HttpMethod.DELETE, entity, String.class, new Object[0])
+        .getBody();
   }
 }
 

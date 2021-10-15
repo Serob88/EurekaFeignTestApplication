@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableEurekaClient
-@EnableFeignClients
+@EnableFeignClients(value = "com.example.client")
 public class ConsumerApplication {
 
   @Lazy

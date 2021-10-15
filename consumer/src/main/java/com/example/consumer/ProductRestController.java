@@ -1,5 +1,8 @@
 package com.example.consumer;
 
+import com.example.client.ProductRestConsumer;
+import com.example.client.pojo.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping({"/demo"})
 public class ProductRestController {
 
-  private final ProductRestConsumer consumer;
-
-  public ProductRestController(ProductRestConsumer consumer) {
-    this.consumer = consumer;
-  }
+  @Autowired
+  ProductRestConsumer consumer;
 
   @GetMapping({"/products"})
   public String getProductInfo() {
